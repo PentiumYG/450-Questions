@@ -1,7 +1,7 @@
 import java.util.*;
 
 
-public class ArrayUnion {
+public class ArraysIntersection {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in); 
         System.out.println("Enter t");
@@ -19,18 +19,17 @@ public class ArrayUnion {
                 for(int i=0;i<m;i++){
                     b[i]=sc.nextInt();
                 }
-                System.out.println(Solution.doUnion1(a, n, b, m));
-                System.out.println(Solution.doUnion2(a, n, b, m));
+                System.out.println(Sol.doUnion1(a, n, b, m));
+                System.out.println(Sol.doUnion2(a, n, b, m));
             }
         }
     }
 
-class Solution{
+class Sol{
     //TC: O(n^2)
     //SC: O(1)
     public static int doUnion1(int a[], int n, int b[], int m) 
     {
-        int len=n+m;
         int count=0;
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
@@ -40,9 +39,8 @@ class Solution{
                 }
             }
         }
-        int union=len-count;
         
-        return union;
+        return count;
     }
     //TC: O((n+m)log(n+m))
     //SC: O(n+m)
@@ -63,8 +61,7 @@ class Solution{
                 count++;
             }
         }
-        int union=len-count;
         
-        return union;
+        return count;
     }
 }
