@@ -3,25 +3,26 @@ import java.util.*;
 
 public class ArraysIntersection {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in); 
-        System.out.println("Enter t");
-            int t=sc.nextInt();
-            sc.nextLine();
-            while(t-->0){
-                int n,m;
-                n=sc.nextInt();
-                m=sc.nextInt();
-                int a[]=new int[n];
-                int b[]=new int[m];
-                for(int i=0;i<n;i++){
-                    a[i]=sc.nextInt();
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Enter t");
+                int t=sc.nextInt();
+                sc.nextLine();
+                while(t-->0){
+                    int n,m;
+                    n=sc.nextInt();
+                    m=sc.nextInt();
+                    int a[]=new int[n];
+                    int b[]=new int[m];
+                    for(int i=0;i<n;i++){
+                        a[i]=sc.nextInt();
+                    }
+                    for(int i=0;i<m;i++){
+                        b[i]=sc.nextInt();
+                    }
+                    System.out.println(Sol.doUnion1(a, n, b, m));
+                    System.out.println(Sol.doUnion2(a, n, b, m));
                 }
-                for(int i=0;i<m;i++){
-                    b[i]=sc.nextInt();
-                }
-                System.out.println(Sol.doUnion1(a, n, b, m));
-                System.out.println(Sol.doUnion2(a, n, b, m));
-            }
+        }
         }
     }
 
