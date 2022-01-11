@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class ArrayMergeIntervals {
     public static void main(String[] args) {
         
@@ -5,57 +7,36 @@ public class ArrayMergeIntervals {
 }
 class Solution {
     public int[][] merge(int[][] intervals) {
-        
         int n = intervals.length;
-        //int[][] arr=new int[n][2];
-       // int[] a=new int[2];
-        int k=n;
-        if(n==1){
-            return intervals;
+        List<List> a = new ArrayList<>();
+        List<Integer> b = new ArrayList<>();
+        for(int i=0;i<n;i++){
+            b.add(0,intervals[i][0]);
+            b.add(1,intervals[i][1]);
+            a.add(b);
         }
-        for(int i=1;i<n;i++){
-            if(intervals[i-1][1]>=intervals[i][0] && intervals[i-1][0]<=intervals[i][1]){
-                k=k-1;
-                break;
-            }  
-        }
-        if(k<n){
-            int[][] arr=new int[k][2];
-            for(int i=1;i<n;i++){
-                if(intervals[i-1][1]>=intervals[i][0] && intervals[i-1][0]<=intervals[i][1]){
-                    if(intervals[i-1][0]<intervals[i][0]){
-                        arr[i-1][0]=intervals[i-1][0];
+        for(int i=0;i<a.size();i++){
+            for(int j=0;j<a.size();j++){
+                if((int)a.get(i).get(1)>=(int)a.get(j).get(0) && (int)a.get(i).get(0)<=(int)a.get(j).get(1)){
+                    if(intervals[i][0]<intervals[j][0]){
+                        b.add(0,intervals[i][0]);
                     }
                     else{
-                        arr[i-1][0]=intervals[i][0];
+                        b.add(0,intervals[j][0]);
                     }
-                    if(intervals[i-1][1]>intervals[i][1]){
-                        arr[i-1][1]=intervals[i-1][1];
+                    if(intervals[i][1]>intervals[j][1]){
+                        b.add(1,intervals[i][1]);
                     }
                     else{
-                       arr[i-1][1]=intervals[i][1]; 
+                       b.add(1,intervals[j][1]);                         
                     }
-                    
-                }
-                else{
-                    arr[i-1][0]=intervals[i][0];
-                    arr[i-1][1]=intervals[i][1];
+                    a.remove(i);
+                    a.remove(j);
+                    a.add(i, b);
+
                 }
             }
-            return merge(arr);
+            
         }
-        else{
-            int[][] arr=new int[k][2];
-            for(int i=1;i<n;i++){
-               if(intervals[i-1][1]>=intervals[i][0] && intervals[i-1][0]>intervals[i][0]){
-                   int temp[][]=new int[1][2];
-                   temp[i-1]=intervals[i-1];
-                   intervals[i-1]=intervals[i];
-                   intervals[i]=temp[i-1];
-               }
-            }
-            return intervals;
-        }
-        
     }
 }
