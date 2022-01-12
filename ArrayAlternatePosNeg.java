@@ -29,19 +29,33 @@ public class ArrayAlternatePosNeg {
         // }
 
         //using O(1) space
-        
-
-    }
-    public static int minimum(int[] arr, int s){
-        int min=arr[0];
-        int indexmin=0;
-        int n=arr.length;
-        for(int i=s;i<n;i++){
-            if(min<arr[i]){
-                min=arr[i];
-                indexmin=i;
+        int k=0;
+        for(int i=0;i<n;i++){
+            if(i%2!=0){
+                if(arr[i]<0){
+                    for(int j=0;j<n;j++){
+                        if(arr[j]>=0){
+                            k=j;
+                            int temp=arr[j];
+                            arr[j]=arr[i];
+                            arr[i]=temp;
+                        }
+                    }
+                }
             }
         }
-        return indexmin;
+
     }
+    // public static int minimum(int[] arr, int s){
+    //     int min=arr[0];
+    //     int indexmin=0;
+    //     int n=arr.length;
+    //     for(int i=s;i<n;i++){
+    //         if(min<arr[i]){
+    //             min=arr[i];
+    //             indexmin=i;
+    //         }
+    //     }
+    //     return indexmin;
+    // }
 }
