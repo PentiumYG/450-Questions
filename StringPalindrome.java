@@ -34,4 +34,32 @@ public class StringPalindrome {
         
     //     return false;
     // }
+
+
+    //TC: TLE in leetcode
+
+    public static boolean isPalindrome(String s) {
+        String a=s.replaceAll("[^a-zA-Z0-9]+","");
+        a=a.toLowerCase();
+        System.out.println("a= "+a);
+        int n=a.length();
+        System.out.println("n= "+n);
+        int i=0; 
+        int j=n-1;
+        int k=0;  //to check condition that string[i] != string[j]
+        while(i<=j){
+            if(a.charAt(i)==a.charAt(j)){
+                i=i+1;
+                j=j-1;
+            }
+            else{
+                k=k+1; 
+                break; 
+             }
+        }
+        if(i>=j){
+            return true;
+        }
+        return false;
+    }
 }
