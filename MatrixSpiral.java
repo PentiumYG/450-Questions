@@ -1,58 +1,45 @@
 import java.util.*;
 public class MatrixSpiral {
     public static void main(String[] args) {
-        
+        int matrix[][] = {{1,2,3}, {4,5,6},{7,8,9}};
+        List<Integer> ans=new ArrayList<>();
+        ans = spiralOrder(matrix);
+        System.out.println(ans);
     }
-}
-class MatrixS {
-    public List<Integer> spiralOrder(int[][] matrix) {
-        int m=matrix.length;
-        int n=matrix[0].length;
-        int i=0;
-        int left=n-1, down=i, right=i, up=m-1;
+
+    public static List<Integer> spiralOrder(int[][] matrix) {
+        int row=matrix.length;
+        int col=matrix[0].length;
+        int sr=0, sc=0, er=row-1, ec=col-1;
         List<Integer> arr=new ArrayList<>();
-        while(right<=left && down<=up){
-            if(right==down && right==left && right==up && right==i){
-                arr.add(matrix[i][i]);
+        //adding elements as part of perimeter
+        while(sr<=er && sc<=ec){
+            //starting row added
+            for(int i=sc; i<=ec; i++){
+                arr.add(matrix[sr][i]);
             }
-            if(right==down){
-                while(right<left){
-                    arr.add(matrix[down][right]);
-                    right++;
+            //last column elements added
+            for(int i=sr+1; i<=er; i++){
+                arr.add(matrix[i][ec]);
+            }
+            //last row elements added
+            if(sr!=er){
+                for(int i=ec-1; i>=sc; i--){
+                    arr.add(matrix[er][i]);
                 }
             }
-            if(right==left){
-                while(down<up){
-                    arr.add(matrix[down][right]);
-                    down++;
+            if(sc!=ec){
+            //first column elements added
+                for(int i=er-1; i>sr; i--){
+                    arr.add(matrix[i][sc]);
                 }
             }
-            if(down==up && right==left){
-                while(left>i){
-                    arr.add(matrix[down][left]);
-                    left--;
-                }
-            }
-            if(down==up){
-                while(up>i){
-                    arr.add(matrix[up][left]);
-                    up--;
-                    if(down>0 && right==0){
-                        i=i+1;
-                    }
-                    if(down==0 && right>0){
-                        i=i+1;
-                    }
-                }
-            }
-            i=i+1;
-            left=right-1;
-            up=down-1;
-            right=i;
-            down=i; 
+            sr = sr+1;
+            sc = sc+1;
+            er = er-1;
+            ec = ec-1;
         }
-        
-        return arr;
+        return arr; 
         
     }
 }
