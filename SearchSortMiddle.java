@@ -14,7 +14,7 @@ class SearchSortMiddle {
             int A=Integer.parseInt(S[0]);
             int B=Integer.parseInt(S[1]);
             int C=Integer.parseInt(S[2]);
-            Solution ob = new Solution();
+            Solu ob = new Solu();
             System.out.println(ob.middle(A,B,C));
         }
     }
@@ -23,7 +23,7 @@ class SearchSortMiddle {
 
 //User function Template for Java
 
-class Solution{
+class Solu{
     int middle(int A, int B, int C){
         //code here
         int arr[] = new int[3];
