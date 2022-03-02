@@ -19,7 +19,7 @@ public class SearchSortValueEIndex {
                 arr[i] = Integer.parseInt(inputLine[i]);
             }
 
-            ArrayList<Integer> ans = new Solution().valueEqualToIndex(arr, n);
+            ArrayList<Integer> ans = new ValIndex().valueEqualToIndex(arr, n);
             if (ans.size() == 0) {
                 System.out.println("Not Found");
             } else {
@@ -37,7 +37,7 @@ public class SearchSortValueEIndex {
 //User function Template for Java
 
 
-class Solution {
+class ValIndex {
     ArrayList<Integer> valueEqualToIndex(int arr[], int n) {
         // code here
         ArrayList<Integer> lis = new ArrayList<>();

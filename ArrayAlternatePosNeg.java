@@ -1,4 +1,3 @@
-import java.util.*;
 public class ArrayAlternatePosNeg {
     public static void main(String[] args) {
         int arr[] = {-5, -2, 5, 2, 4, 7, 1, 8, 0, -8};

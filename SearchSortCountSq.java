@@ -12,8 +12,7 @@ class SearchSortCountSq {
         while (t-- > 0) {
             int N = Integer.parseInt(read.readLine());
 
-            Solution ob = new Solution();
-            System.out.println(ob.countSquares(N));
+            System.out.println(Sol.countSquares(N));
         }
     }
 }// } Driver Code Ends
@@ -21,7 +20,7 @@ class SearchSortCountSq {
 
 //User function Template for Java
 
-class Solution {
+class Sol {
     static int countSquares(int N) {
         
         int count =0;

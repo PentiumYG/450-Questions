@@ -19,14 +19,14 @@ public class ArrayUnion {
                     for(int i=0;i<m;i++){
                         b[i]=sc.nextInt();
                     }
-                    System.out.println(Solution.doUnion1(a, n, b, m));
-                    System.out.println(Solution.doUnion2(a, n, b, m));
+                    System.out.println(Union.doUnion1(a, n, b, m));
+                    System.out.println(Union.doUnion2(a, n, b, m));
                 }
         }
         }
     }
 
-class Solution{
+class Union{
     //TC: O(n^2)
     //SC: O(1)
     public static int doUnion1(int a[], int n, int b[], int m) 
